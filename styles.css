@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Pixellari';
+    src: url('fonts/Pixellari.woff2'),
+    url('fonts/Pixellari.woff');
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Pixellari';
+    color: #fff;
+    -webkit-text-stroke: black 0.8px;
+}
+
+.titre {
+    width: 100%;
+    max-width: 910px;
+    display: block;
+    margin: auto;
+}
+
+.infos-bar {
+    width: 75%;
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+}
+
+.vie img {
+    margin: 2px;
+}
+
+svg {
+    background-color: #EB9164;
+    cursor: none;
+}
+
+main, .affichage_pause, .partie_perdue {
+    width : 120vh;
+    height: 80vh;
+    position: fixed;
+    /* bottom: 5vh; */
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+.affichage_pause, .partie_perdue {
+    background-color: rgba(0, 0, 0, 0.253);
+
+    /* position: absolute; */
+    z-index: 5;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.partie_perdue div{
+    width: 50%;
+}
+
+.partie_perdue p {
+    width: 100%;
+    height: auto;
+    font-size: 2rem;
+    -webkit-text-stroke: black 1.8px;
+    text-align: center;
+}
+
+.pause {
+    transform: translateY(-20%);
+    cursor: pointer;
+    width: 15%;
+}
+
+.restart {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    width: 30%;
+}
+
+.tir_ennemi {
+    z-index: 10;
+}
+
+.touche {
+    animation-name: touche;
+    animation-duration: 0.3s;
+    animation-iteration-count: 2;
+    opacity: 1;
+}
+
+@media screen and (max-width : 920px){
+    main, .affichage_pause, .partie_perdue {
+        width: 90vw;
+        height: 60vw;
+    }
+
+    .partie_perdue p {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-height: 450px){
+    .infos-bar {
+        font-size: 0.8rem;
+        -webkit-text-stroke: black 0.65px;
+    }
+}
+
+@keyframes touche {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+}

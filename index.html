@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoot Them up !</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="d3.js"></script>
+</head>
+
+<body>
+    <img class="titre" src="img/titre.png" alt="">
+
+    <!-- La balise <main> permet de pouvoir ajouter des textes sur la zone de jeu -->
+    <main>
+        <div class="infos-bar">
+            <div style="left: 50%;" class="vie">
+                <img src="img/vie.png" alt="vie">
+                <img src="img/vie.png" alt="vie">
+            </div>
+            <p style="left: 75%;" class="score">Score : <span></span></p>
+            <p class="best-score">Meilleur score : <span></span></p>
+        </div>
+        <svg width="100%" height="100%" viewBox="0 0 300 200">
+            <defs>
+                <!-- Ennemi -->
+                <image id="kamek" xlink:href="img/kamek.svg" alt=""/>
+
+                <!-- Tir kamek -->
+                <image id="tir_kamek" xlink:href="img/flamme-kamek.svg" alt="" style="transform:translateX(-5px)"/>
+
+                <!-- Joueur -->
+                <image id="mario_feu" xlink:href="img/mario-feu.svg" alt="" transform="translate(-5,-5)"/>
+                <image id="mario_normal" xlink:href="img/mario-normal.svg" alt="" transform="translate(-5,-5)"/>
+
+                <!-- Tir joueur -->
+                <image id="tir_joueur" xlink:href="img/flamme-mario.svg" alt=""/>
+
+                <!-- Boss -->
+                <image id="boss" xlink:href="img/bowser.svg" alt="" transform="translate(-10, -15)"/>
+                <image id="boss_squelette" xlink:href="img/bowser-skeleton.svg" alt="" transform="translate(-10, -15)"/>
+
+                <!-- Tir boss -->
+                <image id="tir_boss" xlink:href="img/flamme-bowser.svg" alt="" transform="translate(-7, -5)"/>
+
+                <!-- Champignon vert -->
+                <image id="champi-vert" xlink:href="img/champi-vert.svg" alt="" transform="translate(-3, -3)"/>
+            </defs>
+
+            <!-- Zone de déplacement du joueur -->
+            <rect x="0" y="0" style="fill : #A0ACFE;" width="25%" height="100%"></rect>
+            <!-- Le joueur -->
+            <use class="joueur" href="#mario_feu" x=20 y=100></use>
+            <use class="boss" href="#boss" style="display:none;"></use>
+            <!-- Champignon vert -->
+            <use href="#champi-vert" class="champi-vert" style="display:none;"></use>
+            <use href="#champi-vert" class="champi-pop" style="display:none;"></use>
+        </svg>
+    </main>
+
+    <div class="affichage_pause">
+        <img class="pause" src="img/pause.png" alt="Continuer la partie">
+    </div>
+
+    <div class="partie_perdue">
+        <div>
+            <p>GAME OVER</p>
+            <p class="game_over_score"></p>
+            <p class="game_over_best_score"></p>
+            <img class="restart" src="img/restart.png" alt="Recommencer">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
